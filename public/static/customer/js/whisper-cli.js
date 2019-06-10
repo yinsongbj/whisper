@@ -45,8 +45,8 @@ if(config != undefined && config.socket != undefined){
             case 'connect':
                 kf_id = data.data.kf_id;
                 kf_name = data.data.kf_name;
-                showSystem({content: '客服 ' + data.data.kf_name + ' 为您服务'});
-                document.getElementById('title').innerHTML = '与 ' + kf_name + ' 交流中';
+                showSystem({content: 'Customer ' + data.data.kf_name + ' online'});
+                document.getElementById('title').innerHTML = 'Customer ' + kf_name + ' online';
                 if(1 == commChat){
                     showChatLog();
                 }

@@ -21,7 +21,7 @@ return [
     'salt' => '~NickBai!@#',
 
     // socket server
-    'socket' => '127.0.0.1:8282',
+    'socket' => '192.168.101.7:8282',
 
     // 管理员登录时间
     'save_time' => 86400,

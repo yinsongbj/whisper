@@ -17,11 +17,11 @@ if(config != undefined && config.socket != undefined){
     // 加锁
     lockInput();
     //showSystem({content: '连接中...'});
-    document.getElementById('title').innerText = '连接中...';
+    document.getElementById('title').innerText = 'connecting...';
 
     // 打开Socket
     socket.onopen = function(res) {
-        console.log('握手成功');
+        console.log('shake hands');
         // 登录
         var login_data = '{"type":"userInit", "uid": ' + config.uid + ', "name" : "' + config.name +
             '", "avatar" : "' + config.avatar + '", "group" : ' + config.group + '}';
@@ -43,8 +43,8 @@ if(config != undefined && config.socket != undefined){
             case 'connect':
                 kf_id = data.data.kf_id;
                 kf_name = data.data.kf_name;
-                showSystem({content: '客服 ' + data.data.kf_name + ' 为您服务'});
-                document.getElementById('title').innerHTML = '与 ' + kf_name + ' 交流中';
+                showSystem({content: kf_name + ' online'});
+                document.getElementById('title').innerHTML = 'Customer service';
                 if(1 == commChat){
                     showChatLog();
                 }
@@ -53,7 +53,7 @@ if(config != undefined && config.socket != undefined){
             // 排队等待
             case 'wait':
                 lockInput();
-                document.getElementById('title').innerHTML = '请稍后再来';
+                document.getElementById('title').innerHTML = 'Please come back later.';
                 showSystem(data.data);
                 break;
             // 监测聊天数据
@@ -67,15 +67,15 @@ if(config != undefined && config.socket != undefined){
             // 转接
             case 'relinkMessage':
                 commChat = 2;
-                document.getElementById('title').innerHTML = '正在转接中...';
+                document.getElementById('title').innerHTML = 'Transferring...';
                 break;
         }
     };
 
     // 监听错误
     socket.onerror = function(err){
-        showSystem({content: '连接失败'});
-        document.getElementById('title').innerText = '连接失败';
+        showSystem({content: 'connect failed.'});
+        document.getElementById('title').innerText = 'Connect failed.';
     };
 }
 
@@ -167,7 +167,7 @@ function sendMsg(sendMsg){
     _html += '<li class="layim-chat-system"><span>' + time + '</span></li>'
     _html += '<li class="layim-chat-li layim-chat-mine">';
     _html += '<div class="layim-chat-user">';
-    _html += '<img src="' + config.avatar + '"><cite>我</cite></div>';
+    _html += '<img src="' + config.avatar + '"><cite>Me</cite></div>';
     _html += '<div class="layim-chat-text">' + content + ' </div></li>';
 
     $('#chat-list').html(_html);

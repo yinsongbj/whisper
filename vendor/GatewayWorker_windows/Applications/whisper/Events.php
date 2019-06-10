@@ -308,7 +308,7 @@ class Events
                     $waitMessage = [
                         'message_type' => 'wait',
                         'data' => [
-                            'content' => '暂时没有客服上班,请稍后再咨询。',
+                            'content' => 'No customer service is available for the time being. Please consult again later.',
                         ]
                     ];
                     Gateway::sendToClient($userInfo[$message['uid']]['0'], json_encode($waitMessage));
@@ -480,7 +480,7 @@ class Events
             $number = 1;
             foreach(self::$global->userList as $vo){
 
-                $waitMsg = '您前面还有 ' . $number . ' 位会员在等待。';
+                $waitMsg = 'There are ' . $number . ' members ahead of you.';
                 $waitMessage = [
                     'message_type' => 'wait',
                     'data' => [
@@ -507,7 +507,7 @@ class Events
             switch ($res['code']){
 
                 case -1:
-                    $waitMsg = '暂时没有客服上班,请稍后再咨询。';
+                    $waitMsg = 'No customer service is available for the time being. Please consult again later.';
                     // 逐一通知
                     foreach(self::$global->userList as $vo){
 
@@ -529,7 +529,7 @@ class Events
                     $number = 1;
                     foreach(self::$global->userList as $vo){
 
-                        $waitMsg = '您前面还有 ' . $number . ' 位会员在等待。';
+                        $waitMsg = 'There are ' . $number . ' members ahead of you.';
                         $waitMessage = [
                             'message_type' => 'wait',
                             'data' => [
@@ -635,7 +635,7 @@ class Events
             switch ($res['code']){
 
                 case -1:
-                    $waitMsg = '暂时没有客服上班,请稍后再咨询。';
+                    $waitMsg = 'No customer service is available for the time being. Please consult again later.';
                     break;
                 case -2:
                     break;
@@ -643,7 +643,7 @@ class Events
                     break;
                 case -4:
                     $number = count(self::$global->userList);
-                    $waitMsg = '您前面还有 ' . $number . ' 位会员在等待。';
+                    $waitMsg = 'There are ' . $number . ' members ahead of you.';
                     break;
             }
 
