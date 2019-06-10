@@ -148,7 +148,7 @@ CREATE TABLE `ws_reply` (
 -- ----------------------------
 -- Records of ws_reply
 -- ----------------------------
-INSERT INTO `ws_reply` VALUES ('1', '欢迎使用whisper', '2');
+INSERT INTO `ws_reply` VALUES ('1', '欢迎使用Lottery', '2');
 
 -- ----------------------------
 -- Table structure for ws_service_data
@@ -249,4 +249,4 @@ CREATE TABLE `ws_words` (
 -- ----------------------------
 -- Records of ws_words
 -- ----------------------------
-INSERT INTO `ws_words` VALUES ('1', '欢迎来到whisper v1.0.0', '2017-10-25 12:51:09', '1');
+INSERT INTO `ws_words` VALUES ('1', '欢迎来到Lottery v1.0.0', '2017-10-25 12:51:09', '1');
